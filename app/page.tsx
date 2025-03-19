@@ -337,7 +337,7 @@ export default function MessageBoard() {
     setZIndexCounter((prev) => prev + 1);
 
     e.stopPropagation()
-    console.log('asdad')
+
     // For notes
     const noteIndex = notes.findIndex((note) => note.id === id);
     if (noteIndex !== -1) {
