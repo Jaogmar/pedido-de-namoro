@@ -1,0 +1,107 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 336 80% 58%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 336 80% 96%;
+    --secondary-foreground: 336 50% 30%;
+    --muted: 336 40% 96.1%;
+    --muted-foreground: 336 30% 46.9%;
+    --accent: 336 80% 96.1%;
+    --accent-foreground: 336 50% 30%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 336 60% 80%;
+    --input: 336 60% 80%;
+    --ring: 336 80% 58%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 336 70% 50%;
+    --primary-foreground: 336 10% 90%;
+    --secondary: 336 30% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 336 30% 17.5%;
+    --muted-foreground: 336 20% 65.1%;
+    --accent: 336 30% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 336 30% 17.5%;
+    --input: 336 30% 17.5%;
+    --ring: 336 70% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .font-handwriting {
+    font-family: "Comic Sans MS", cursive, sans-serif;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+/* Modern board texture */
+.modern-board {
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.01) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.01) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Prevent text selection during drag */
+.cursor-move {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+/* Prevent pull-to-refresh on mobile */
+html,
+body {
+  overscroll-behavior-y: contain;
+}
+
+/* Polaroid hover effect */
+.hover\:shadow-md:hover {
+  transform: translateY(-2px);
+}
+
