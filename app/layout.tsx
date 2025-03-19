@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   title: 'Nossos Momentos',
   description: 'com amor por joão gabriel',
   generator: 'v0.dev',
+  icons: {
+    icon: '/midia/icon-page.png',
+  },
 }
 
 export const viewport: Viewport = {
