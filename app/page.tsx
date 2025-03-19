@@ -41,6 +41,7 @@ type PolaroidVideo = {
   y: number
   z: number
   width: string
+  height: string
 }
 
 const calculateTimeDifference = () => {
@@ -67,7 +68,7 @@ export default function MessageBoard() {
   const [notes, setNotes] = useState<Note[]>([
     {
       id: "7n",
-      content: "Dia 20 é o nosso dia, teee aaaamooo muuuuuuiiiiitoooo!!! ❤️",
+      content: "Hoje é o nosso Dia amor, teee aaaamooo muuuuuuiiiiitoooo!!! ❤️",
       color: "bg-fuchsia-200",
       rotation: -1,
       x: 209.068115234375,
@@ -231,9 +232,10 @@ export default function MessageBoard() {
       caption: "os doidinhos 🤪",
       rotation: 3,
       x: 171.65179443359375,
-      y: 569.5244140625,
+      y: 500.5244140625,
       z: 1,
-      width: "",
+      width: "w-40",
+      height: "h-56",
     },
     {
       id: "2v",
@@ -241,9 +243,10 @@ export default function MessageBoard() {
       caption: "quebra-cabeça infinito",
       rotation: -2,
       x: 644.2694702148438,
-      y: 562.6785888671875,
+      y: 502.6785888671875,
       z: 1,
-      width: "",
+      width: "w-40",
+      height: "h-56",
     },
     {
       id: "3v",
@@ -253,7 +256,8 @@ export default function MessageBoard() {
       x: 14.6318359375,
       y: 137.44851684570312,
       z: 1,
-      width: "",
+      width: "w-40",
+      height: "h-56",
     },
   ]);
 
@@ -635,6 +639,7 @@ export default function MessageBoard() {
               className={cn(
                 "absolute bg-white p-3 cursor-move transition-shadow duration-300",
                 video.width,
+                video.height,
                 activeItem === video.id ? "shadow-lg" : "hover:shadow-md",
               )}
               style={{
