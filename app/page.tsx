@@ -67,7 +67,7 @@ export default function MessageBoard() {
   const [notes, setNotes] = useState<Note[]>([
     {
       id: "7n",
-      content: "Dia 20 é o nosso dia, te amo ❤️",
+      content: "Dia 20 é o nosso dia, teee aaaamooo muuuuuuiiiiitoooo!!! ❤️",
       color: "bg-fuchsia-200",
       rotation: -1,
       x: 209.068115234375,
@@ -87,7 +87,7 @@ export default function MessageBoard() {
     },
     {
       id: "2n",
-      content: "São muito momentos juntos que não cabem nessa tela, e todos são muito especiais",
+      content: "São muito momentos juntos que não cabem nessa tela, e cada  um deles são são muito especiais",
       color: "bg-pink-100",
       rotation: 1,
       x: 47.07586669921875,
@@ -97,7 +97,7 @@ export default function MessageBoard() {
     },
     {
       id: "3n",
-      content: "Você é a pessoa mais incrível que eu conheço, e eu sou muito grato por ter você na minha vida",
+      content: "Você é a pessoa mais incrível que eu conheci, e eu sou muito grato por ter você na minha vida",
       color: "bg-rose-200",
       rotation: -1,
       x: 7.380615234375,
@@ -336,6 +336,8 @@ export default function MessageBoard() {
     setActiveItem(id)
     setZIndexCounter((prev) => prev + 1);
 
+    e.stopPropagation()
+    console.log('asdad')
     // For notes
     const noteIndex = notes.findIndex((note) => note.id === id);
     if (noteIndex !== -1) {
@@ -551,7 +553,7 @@ export default function MessageBoard() {
           <a href="https://open.spotify.com/playlist/7dHSdsOHuCVV1j7ggq2sQ6?si=84fe5c4964f146a1"
             target="_blank">
             <button
-            className="fixed bottom-4 right-4 bg-gradient-to-r from-green-500 to-green-600 text-white p-2 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 z-[9999] flex items-center justify-center"
+            className="fixed bottom-4 right-4 bg-gradient-to-r from-green-500 to-green-600 text-white p-2 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 z-[50] flex items-center justify-center"
             aria-label="Ouvir música no Spotify"
             >
             <Music size={24} />
@@ -614,11 +616,11 @@ export default function MessageBoard() {
             >
               {/* Modern pin for each polaroid */}
               <div className="absolute -top-1.5 left-1/2 transform -translate-x-1/2 w-3 h-3 rounded-full shadow-sm z-10 bg-gradient-to-br from-indigo-400 to-indigo-500"></div>
-              <div className="bg-gray-100 p-1 mb-2 shadow-inner">
+              <div className="bg-gray-100 p-1 mb-2 shadow-inner pointer-events-none">
                 <img
                   src={polaroid.imageUrl || "/placeholder.svg"}
                   alt={polaroid.caption}
-                  className="w-full h-32 md:h-36 object-cover"
+                  className="w-full h-32 md:h-36 object-cover pointer-events-none"
                   style={{ objectFit: "cover" }}
                 />
               </div>
@@ -651,7 +653,7 @@ export default function MessageBoard() {
             >
               {/* Modern pin for each video */}
               <div className="absolute -top-1.5 left-1/2 transform -translate-x-1/2 w-3 h-3 rounded-full shadow-sm z-10 bg-gradient-to-br from-indigo-400 to-indigo-500"></div>
-                <div className="bg-gray-100 p-1 mb-2 shadow-inner rounded-lg overflow-hidden">
+                <div className="bg-gray-100 p-1 mb-2 shadow-inner rounded-lg overflow-hidden pointer-events-none">
                 <video
                   src={video.videoUrl}
                   loop
