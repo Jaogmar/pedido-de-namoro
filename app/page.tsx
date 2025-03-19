@@ -77,7 +77,7 @@ export default function MessageBoard() {
     },
     {
       id: "1n",
-      content: "Cada momento com você é especial, cada risada, cada abraço, cada olhar. Amor, você é muito especial para mim!!!",
+      content: "Cada momento com você é especial, cada risada, cada abraço, cada olhar, são muito especiais para mim!!!",
       color: "bg-pink-200",
       rotation: -1,
       x: 328.319580078125,
@@ -117,7 +117,7 @@ export default function MessageBoard() {
     },
     {
       id: "5n",
-      content: "Quero conhecer o mundo com você, viajar passear e fazer você se sentir a pessoa mais especial do mundo",
+      content: "Quero conhecer o mundo com você, viajar, explorar e fazer você se sentir a pessoa mais especial desse mundo (Mesmo você já sendo!)",
       color: "bg-red-200",
       rotation: 1,
       x: 328.660888671875,
@@ -127,7 +127,7 @@ export default function MessageBoard() {
     },
     {
       id: "6n",
-      content: "Obrigado por esse nossos 9 meses, 2 dias, 1 horas, 43 minutos e 5 segundos ❤️",
+      content: "Obrigado por me aturar por 9 meses, 2 dias, 1 horas, 43 minutos e 5 segundos ❤️",
       color: "bg-fuchsia-200",
       rotation: -1,
       x: 209.068115234375,
@@ -175,7 +175,7 @@ export default function MessageBoard() {
     {
       id: "3p",
       imageUrl: midiaFolder + "polaroid3.jpg?height=150&width=150",
-      caption: "quase morremo esse dia",
+      caption: "quase morremos esse dia",
       rotation: -2,
       x: 0,
       y: 505.8765869140625,
@@ -195,7 +195,7 @@ export default function MessageBoard() {
     {
       id: "5p",
       imageUrl: midiaFolder + "polaroid5.jpg?height=150&width=150",
-      caption: "os bala na agulha",
+      caption: "minha riqueza 💰",
       rotation: 1,
       x: 691.1370849609375,
       y: 35.98103332519531,
@@ -248,7 +248,7 @@ export default function MessageBoard() {
     {
       id: "3v",
       videoUrl: midiaFolder + "video-3.mp4",
-      caption: "filmaker",
+      caption: "mestra das gravações",
       rotation: -2,
       x: 14.6318359375,
       y: 137.44851684570312,
@@ -333,7 +333,6 @@ export default function MessageBoard() {
 
   // Handle drag start for both mouse and touch events
   const handleDragStart = (e: React.MouseEvent | React.TouchEvent, id: string) => {
-    e.preventDefault()
     setActiveItem(id)
     setZIndexCounter((prev) => prev + 1);
 
@@ -404,6 +403,8 @@ export default function MessageBoard() {
 
     const newX = e.clientX - boardRect.left - touchOffset.x
     const newY = e.clientY - boardRect.top - touchOffset.y
+    e.preventDefault()
+    e.stopPropagation()
 
     updateItemPosition(newX, newY)
   }
@@ -419,6 +420,8 @@ export default function MessageBoard() {
 
     const newX = e.touches[0].clientX - boardRect.left - touchOffset.x
     const newY = e.touches[0].clientY - boardRect.top - touchOffset.y
+    e.preventDefault()
+    e.stopPropagation()
 
     updateItemPosition(newX, newY)
   }
@@ -460,9 +463,6 @@ export default function MessageBoard() {
 
   // Handle end of drag
   const handleDragEnd = () => {
-    console.log("Notes:", notes);
-    console.log("Polaroids:", polaroids);
-    console.log("Polaroid Videos:", polaroidVideos);
     setActiveItem(null)
   }
 
@@ -486,7 +486,7 @@ export default function MessageBoard() {
       <Dialog open={showIntro} onOpenChange={setShowIntro}>
         <DialogContent className="sm:max-w-md bg-gradient-to-br from-white to-pink-50 border-pink-200">
           <DialogHeader>
-            <DialogTitle className="text-center text-xl font-handwriting text-pink-600">
+            <DialogTitle className="text-center text-xl text-pink-600">
               Um recadinho para você...
             </DialogTitle>
             <div className="text-center pt-4">
@@ -499,7 +499,7 @@ export default function MessageBoard() {
               </div>  
 
               {introResponse ? (
-                <div className="text-pink-600 font-handwriting text-lg animate-fade-in">{introResponse}</div>
+                <div className="text-pink-600 text-lg animate-fade-in">{introResponse}</div>
               ) : (
                 <div className="flex justify-center gap-4 mt-4">
                   <Button
@@ -542,21 +542,21 @@ export default function MessageBoard() {
           <div className="absolute bottom-8 left-8 w-10 h-1 bg-gradient-to-r from-indigo-300 to-pink-300 rounded-full opacity-50"></div>
 
           {/* Instructions */}
-          <div className="absolute top-2 left-1/2 transform -translate-x-1/2 bg-white/80 backdrop-blur-sm px-4 py-1 rounded-full text-xs text-gray-600 shadow-sm">
+          <div className="absolute top-2 left-1/2 transform -translate-x-1/2 bg-white/80 backdrop-blur-sm px-4 py-1 rounded-full text-xs text-gray-600 shadow-sm text-center">
             Toque e arraste para mover
           </div>
 
 
           {/* Spotify Button */}
-          <a href="https://open.spotify.com/intl-pt/track/6TbE6X0Rup4lbhLrgjhPIg?si=ee92e935690e45e9"
+          <a href="https://open.spotify.com/playlist/7dHSdsOHuCVV1j7ggq2sQ6?si=84fe5c4964f146a1"
             target="_blank">
-          <button
-            className="absolute bottom-4 right-4 bg-gradient-to-r from-green-500 to-green-600 text-white p-2 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 z-20 flex items-center justify-center"
+            <button
+            className="fixed bottom-4 right-4 bg-gradient-to-r from-green-500 to-green-600 text-white p-2 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 z-[9999] flex items-center justify-center"
             aria-label="Ouvir música no Spotify"
-          >
+            >
             <Music size={24} />
-            <span className="ml-2 mr-1 text-sm font-medium">musga</span>
-          </button>
+            <span className="ml-2 mr-1 text-sm font-medium">nossas músicas</span>
+            </button>
           </a>
           {/* Notes */}
           
@@ -585,7 +585,7 @@ export default function MessageBoard() {
             >
               {/* Modern pin for each note */}
               <div className="absolute -top-1.5 left-1/2 transform -translate-x-1/2 w-3 h-3 rounded-full shadow-sm z-10 bg-gradient-to-br from-pink-400 to-pink-500"></div>
-              <p className={cn("font-handwriting leading-relaxed text-gray-800", note.fontSize)}>{note.content}</p>
+              <p className={cn("leading-relaxed text-gray-800", note.fontSize)}>{note.content}</p>
             </div>
           ))}
 
@@ -622,7 +622,7 @@ export default function MessageBoard() {
                   style={{ objectFit: "cover" }}
                 />
               </div>
-              <p className="text-center text-sm md:text-base font-handwriting text-gray-800 mt-1">{polaroid.caption}</p>
+              <p className="text-center text-sm md:text-base text-gray-800 mt-1">{polaroid.caption}</p>
             </div>
           ))}
 
@@ -661,7 +661,7 @@ export default function MessageBoard() {
                   onError={(e) => console.error('Erro ao carregar o vídeo:', e)}
                 />
                 </div>
-              <p className="text-center text-sm md:text-base font-handwriting text-gray-800 mt-1">{video.caption}</p>
+              <p className="text-center text-sm md:text-base text-gray-800 mt-1">{video.caption}</p>
             </div>
           ))}
         </div>
